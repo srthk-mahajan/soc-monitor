@@ -1,0 +1,22 @@
+title: Linux SSH Brute Force Attempt
+id: ssh-bruteforce-linux
+description: Detect repeated failed SSH logins
+status: experimental
+
+logsource:
+  product: linux
+  service: sshd
+
+detection:
+
+  selection:
+    message|contains:
+      - "Failed password"
+
+  condition: selection
+
+level: high
+
+tags:
+  - attack.credential_access
+  - attack.t1110

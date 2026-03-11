@@ -1,0 +1,25 @@
+port_scan:
+  threshold: 12
+  window_seconds: 5
+  severity: HIGH
+  mitre: T1046
+
+sensitive_service_probe:
+  threshold: 5
+  ports: [22,3389,3306]
+  severity: MEDIUM
+  mitre: T1046
+
+traffic_burst:
+  threshold: 60
+  window_seconds: 5
+  severity: HIGH
+  mitre: T1498
+
+ssh_bruteforce:
+  window_seconds: 30
+  thresholds:
+    MEDIUM: 3
+    HIGH: 6
+    CRITICAL: 10
+  mitre: T1110
